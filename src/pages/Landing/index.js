@@ -6,7 +6,7 @@ import DynamicForm from '../../components/Form/index.js';
 import JsonView from '../../components/JsonView/index.js';
 import './Landing.less';
 
-const LandingUI = () => {
+const Landing = () => {
   const { Title } = Typography;
   const { json } = useContext(ApplicationContext);
   const [formJson, setFormJson] = useState([]);
@@ -51,5 +51,4 @@ const LandingUI = () => {
   );
 };
 
-export default React.memo(LandingUI, () => true);
-// export default LandingUI;
+export default React.memo(Landing, () => true);
