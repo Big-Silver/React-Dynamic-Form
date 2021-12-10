@@ -1,4 +1,6 @@
 import React from 'react';
+import './Loader.less';
+
 const Loader = () => (
   <div>
     <svg className="contentLoader" viewBox="0 0 50 50">

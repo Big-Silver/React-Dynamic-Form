@@ -1,30 +1,26 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import { data } from '../data/data.js';
 
 const defaultStates = {
   json: [],
   setJson: [],
-  formJson: [],
-  setFormJson: () => null,
-  fields: [],
-  setFields: () => null,
 };
 
 const ApplicationContext = createContext(defaultStates);
 
 const ApplicationProvider = ({ children }) => {
   const [json, setJson] = useState([]);
-  const [formJson, setFormJson] = useState([]);
-  const [fields, setFields] = useState([]);
+
+  useEffect(() => {
+    setJson(data());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <ApplicationContext.Provider
       value={{
         json,
         setJson,
-        formJson,
-        setFormJson,
-        fields,
-        setFields,
       }}
     >
       {children}

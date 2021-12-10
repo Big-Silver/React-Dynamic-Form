@@ -1,7 +1,14 @@
 import React from 'react';
 import { Form, Input } from 'antd';
+import './Input.less';
 
-const DynamicInput = ({ name, type, human_label, conditional = true }) => {
+const DynamicInput = ({
+  name,
+  type,
+  human_label,
+  conditional = true,
+  required = false,
+}) => {
   const FormInput = () => {
     switch (type) {
       case 'password':
@@ -18,7 +25,11 @@ const DynamicInput = ({ name, type, human_label, conditional = true }) => {
   return (
     <>
       {conditional ? (
-        <Form.Item name={name} label={human_label}>
+        <Form.Item
+          name={name}
+          label={human_label}
+          rules={[{ required: required }]}
+        >
           {FormInput()}
         </Form.Item>
       ) : null}

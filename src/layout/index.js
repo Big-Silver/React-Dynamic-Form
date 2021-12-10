@@ -4,12 +4,7 @@ import { Layout } from 'antd';
 import Header from './Header';
 import './Layout.less';
 
-const routes = [
-  {
-    path: '/',
-    component: lazy(() => import('../pages/Landing')),
-  },
-];
+const Landing = lazy(() => import('../pages/Landing'));
 
 const Main = () => {
   const { Content } = Layout;
@@ -19,13 +14,7 @@ const Main = () => {
       <Header />
       <Content className="main-content">
         <Routes>
-          {routes.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={<route.component />}
-            />
-          ))}
+          <Route path="/" element={<Landing />} />
         </Routes>
       </Content>
     </Layout>
